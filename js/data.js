@@ -1118,7 +1118,7 @@ const RESOURCES = [
   {
     category: "한국 K-ICS",
     items: [
-      { name: "금융감독원 보험감독국", url: "https://www.fss.or.kr", desc: "K-ICS 비율 현황, 감독 지침, 업무 설명서" },
+      { name: "금융감독원 계리리스크감독국", url: "https://www.fss.or.kr/fss/main/contents.do?menuNo=200421", desc: "K-ICS 비율 현황, 감독 지침, 업무 설명서" },
       { name: "금융위원회 보험과", url: "https://www.fsc.go.kr", desc: "보험업감독규정 개정, 입법예고" },
     ]
   }
