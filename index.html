@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해외 지급여력제도 모니터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────── -->
+<header class="header">
+  <div class="header-logo" onclick="showPage('dashboard')" style="cursor:pointer">
+    <div class="logo-icon">⚖</div>
+    <div>
+      <span>해외 지급여력제도 모니터</span>
+      <span class="logo-sub">Global Solvency Monitor</span>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <a href="#" class="active" id="nav-dashboard">대시보드</a>
+    <a href="#" id="nav-updates">업데이트 피드</a>
+    <a href="#" id="nav-resources">참고자료</a>
+  </nav>
+  <div class="header-right">
+    <span class="header-date" id="header-date"></span>
+  </div>
+</header>
+
+<!-- ── Layout ─────────────────────────────────────── -->
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <h3>메뉴</h3>
+      <div class="sidebar-item active" data-page="dashboard" onclick="showPage('dashboard')">
+        <span class="flag">🏠</span>
+        <span class="name">대시보드</span>
+      </div>
+      <div class="sidebar-item" data-page="updates" onclick="showPage('updates')">
+        <span class="flag">📋</span>
+        <span class="name">업데이트 피드</span>
+      </div>
+      <div class="sidebar-item" data-page="resources" onclick="showPage('resources')">
+        <span class="flag">📚</span>
+        <span class="name">참고자료</span>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <h3>제도별 보기</h3>
+      <div id="sidebar-regimes"></div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- ── Dashboard Page ──────────────────────────── -->
+    <div class="page active" id="page-dashboard">
+      <div class="section-header">
+        <h1>대시보드</h1>
+        <p>주요 해외 지급여력제도 현황과 최근 동향을 한눈에 확인합니다.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value">10</div>
+          <div class="stat-label">모니터링 중인 제도</div>
+          <div class="stat-change neutral">EU · 영국 · 미국 · 한국 외</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">15</div>
+          <div class="stat-label">최근 6개월 업데이트</div>
+          <div class="stat-change up">↑ 규정 5 · 보고서 6 · 협의 4</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-label">전환기 제도</div>
+          <div class="stat-change neutral">ICS · 일본 EV · Omnibus II</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">2026</div>
+          <div class="stat-label">ICS 시행 예정년도</div>
+          <div class="stat-change neutral">IAIS 모니터링 기간 종료</div>
+        </div>
+      </div>
+
+      <!-- Regime Grid -->
+      <div class="section-title-row">
+        <h2>주요 지급여력제도</h2>
+      </div>
+      <div class="regime-grid" id="regime-grid"></div>
+
+      <div class="divider"></div>
+
+      <!-- Recent Updates -->
+      <div class="section-title-row">
+        <h2>최근 업데이트</h2>
+        <a href="#" id="link-all-updates" style="font-size:0.85rem">전체 보기 →</a>
+      </div>
+      <div class="update-list" id="recent-updates"></div>
+    </div>
+
+    <!-- ── Updates Page ─────────────────────────────── -->
+    <div class="page" id="page-updates">
+      <div class="section-header">
+        <h1>업데이트 피드</h1>
+        <p>해외 주요 감독당국의 규정 변경, 보고서, 협의문서를 모아봅니다.</p>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:16px;">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            class="search-input"
+            type="text"
+            placeholder="키워드 검색 (제목, 태그...)"
+            oninput="onSearch(event)"
+          >
+        </div>
+        <span style="font-size:0.82rem; color:var(--text-muted)">검색 결과: <strong id="updates-count">–</strong></span>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <div class="filter-bar" id="filter-type"></div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="filter-bar" id="filter-regime"></div>
+      </div>
+
+      <div class="update-list" id="updates-list"></div>
+    </div>
+
+    <!-- ── Regime Detail Page ───────────────────────── -->
+    <div class="page" id="page-regime">
+      <div id="regime-detail-content"></div>
+    </div>
+
+    <!-- ── Resources Page ──────────────────────────── -->
+    <div class="page" id="page-resources">
+      <div class="section-header">
+        <h1>참고자료</h1>
+        <p>주요 감독당국 공식 사이트 및 원문 자료 링크를 제공합니다.</p>
+      </div>
+      <div id="resources-content"></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ['dashboard', 'updates', 'resources'].forEach(function(page) {
+      var el = document.getElementById('nav-' + page);
+      if (el) el.addEventListener('click', function(e) { e.preventDefault(); showPage(page); });
+    });
+    var allUpdates = document.getElementById('link-all-updates');
+    if (allUpdates) allUpdates.addEventListener('click', function(e) { e.preventDefault(); showPage('updates'); });
+  });
+</script>
+</body>
+</html>
