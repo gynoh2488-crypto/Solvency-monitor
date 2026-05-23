@@ -1076,7 +1076,7 @@ const RESOURCES = [
     category: "IAIS / ICS",
     items: [
       { name: "IAIS 공식 웹사이트", url: "https://www.iaisweb.org", desc: "ICS, ComFrame, GIMAR 등 발간물" },
-      { name: "IAIS Insurance Core Principles", url: "https://www.iaisweb.org/activities/standard-setting/ips", desc: "핵심 감독원칙(ICPs) 전문" },
+      { name: "IAIS Insurance Core Principles", url: "https://www.iais.org/activities-topics/standard-setting/icps-and-comframe/", desc: "핵심 감독원칙(ICPs) 전문 (2024년 12월 개정판)" },
     ]
   },
   {
