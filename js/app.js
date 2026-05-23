@@ -158,6 +158,7 @@ function renderUpdateItem(u) {
         <div class="update-title">${u.title}</div>
         <div class="update-summary">${u.summary}</div>
         <div class="update-tags">${renderTags(u.tags)}</div>
+        ${u.link ? `<a class="update-source-link" href="${u.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">원문 보기 ↗</a>` : ''}
       </div>
     </div>
   `;

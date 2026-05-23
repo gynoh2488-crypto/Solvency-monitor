@@ -464,6 +464,15 @@ a:hover { text-decoration: underline; }
   color: var(--text-muted);
 }
 
+.update-source-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+.update-source-link:hover { text-decoration: underline; }
+
 /* ── Regime Detail ───────────────────────────────────── */
 .regime-detail-header {
   background: var(--surface);
