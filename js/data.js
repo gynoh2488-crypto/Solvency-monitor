@@ -113,6 +113,61 @@ const REGIMES = [
 
 const UPDATES = [
   {
+    id: 25,
+    date: "2026-05-12",
+    regime: "solvency2",
+    type: "report",
+    title: "EIOPA 감독위원회(BoS) 2026년 3월 회의 의사록 공개",
+    summary: "2026년 3월 24~25일 개최된 EIOPA 감독위원회 정기회의 의사록 발간. Omnibus II 입법 진행 현황, 감독 수렴 이니셔티브, 2026년 EIOPA 업무계획 이행 점검 등 주요 의제 논의.",
+    tags: ["BoS 회의", "Omnibus II", "감독 수렴"],
+    source: "EIOPA",
+    link: "https://www.eiopa.europa.eu/publications/minutes-board-supervisors-meeting-24-25-march-2026_en"
+  },
+  {
+    id: 24,
+    date: "2026-05-05",
+    regime: "solvency2",
+    type: "report",
+    title: "EIOPA, EU 보험보장제도(IGS) 조화 기준의 소비자 영향 연구 발간",
+    summary: "EU 차원의 보험보장제도(IGS) 최소 공통 기준 도입이 소비자 행동에 미치는 영향 분석. 체코·프랑스·독일·스페인·스웨덴 5개국 대상. 조화된 기준이 국경간 보험사 선택 의향·신뢰도·보험료 수용도에 긍정적 영향을 미치는 것으로 확인.",
+    tags: ["IGS", "보험보장제도", "소비자보호"],
+    source: "EIOPA",
+    link: "https://www.eiopa.europa.eu/publications/study-effect-harmonised-igs-standards-consumer-perceptions-and-choice_en"
+  },
+  {
+    id: 23,
+    date: "2026-04-28",
+    regime: "solvency2",
+    type: "report",
+    title: "EIOPA BoS-OPSG 합동회의 의사록 공개 (2026년 3월)",
+    summary: "EIOPA 감독위원회(BoS)와 직업연금 이해관계자그룹(OPSG) 합동 회의 의사록. IORP II 지침 검토 진행 현황, 지속가능성 공시 요건, PEPP(범유럽 개인연금상품) 시장 현황 등 논의.",
+    tags: ["OPSG", "IORP II", "직업연금"],
+    source: "EIOPA",
+    link: "https://www.eiopa.europa.eu/publications/joint-board-supervisors-bos-opsg-meeting-minutes-23-march-2026_en"
+  },
+  {
+    id: 22,
+    date: "2026-04-24",
+    regime: "solvency2",
+    type: "consultation",
+    title: "EIOPA OPSG, IORP II 지침 검토 자발적 의견서 발표",
+    summary: "EIOPA 직업연금 이해관계자그룹(OPSG)이 IORP II 지침 검토에 대한 자발적 의견서 공개. 투자 규정 현대화, 거버넌스 강화, 회원 정보 제공 개선, 지속가능성 요건 반영 등 권고사항 포함.",
+    tags: ["OPSG", "IORP II", "연금 감독"],
+    source: "EIOPA",
+    link: "https://www.eiopa.europa.eu/publications/opsg-own-initiative-opinion-review-iorp-ii-directive_en"
+  },
+  {
+    id: 21,
+    date: "2026-04-24",
+    regime: "solvency2",
+    type: "regulation",
+    title: "EIOPA, 보험사 정리보고(IRRD) 이행기술기준 최종 보고서 발표",
+    summary: "EIOPA가 보험회사 정리·회생 지침(IRRD) 이행을 위한 기술기준(ITS) 최종안 발표. 보험사 정리 절차 시 감독당국에 제출해야 하는 보고 정보의 표준 양식·절차·템플릿 규정. EU 보험사 부실 대응 체계 강화 목적.",
+    tags: ["IRRD", "정리보고", "ITS"],
+    source: "EIOPA",
+    link: "https://www.eiopa.europa.eu/publications/final-report-implementing-technical-standards-regarding-resolution-reporting-irrd_en"
+  },
+  {
     id: 20,
     date: "2025-08-07",
     regime: "ics",
