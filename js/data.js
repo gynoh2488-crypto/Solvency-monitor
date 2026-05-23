@@ -1,5 +1,16 @@
 const REGIMES = [
   {
+    id: "kics",
+    name: "K-ICS",
+    region: "한국",
+    flag: "🇰🇷",
+    authority: "금융위원회 / 금융감독원",
+    status: "active",
+    color: "#003478",
+    summary: "경제가치기반 지급여력제도(K-ICS, 킥스). 2023년 1월 시행. 2025년 경과조치 개정 및 신뢰조정(VA) 개선 논의 중. 금리 하락 시 비율 변동성 완화가 주요 과제.",
+    link: "https://www.fss.or.kr"
+  },
+  {
     id: "solvency2",
     name: "Solvency II",
     region: "EU",
@@ -86,17 +97,6 @@ const REGIMES = [
     color: "#D52B1E",
     summary: "스위스 지급여력테스트(Swiss Solvency Test). 시장일관적(Market-consistent) 평가 방식. IAIS ICS 개발에 기술적 기반 제공.",
     link: "https://www.finma.ch"
-  },
-  {
-    id: "kics",
-    name: "K-ICS",
-    region: "한국",
-    flag: "🇰🇷",
-    authority: "금융위원회 / 금융감독원",
-    status: "active",
-    color: "#003478",
-    summary: "경제가치기반 지급여력제도(K-ICS, 킥스). 2023년 1월 시행. 2025년 경과조치 개정 및 신뢰조정(VA) 개선 논의 중. 금리 하락 시 비율 변동성 완화가 주요 과제.",
-    link: "https://www.fss.or.kr"
   },
   {
     id: "bermuda",
