@@ -113,6 +113,105 @@ const REGIMES = [
 
 const UPDATES = [
   {
+    id: 63,
+    date: "2026-04-21",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, ICP 13(재보험·위험이전) 동료검토 집계 보고서 발간",
+    summary: "IAIS가 80개 관할권 참여 ICP 13(재보험 및 기타 위험이전) 동료검토 결과 집계 보고서 발간. 85%의 회원이 준수 또는 대체로 준수 등급 획득. 우수 감독 실무 사례 제시로 각국 기준 이행 강화 지원.",
+    tags: ["ICP 13", "동료검토", "재보험"],
+    source: "IAIS",
+    link: "https://www.iais.org/2026/04/iais-publishes-aggregate-report-on-the-peer-review-process-on-icp-13-reinsurance-and-other-forms-of-risk-transfer/"
+  },
+  {
+    id: 62,
+    date: "2026-03-01",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, 2025년 연간 성과 보고서(Year in Review) 발간",
+    summary: "IAIS 2025년 연간 성과 보고서 발간. 2024년 말 ICS 채택을 정점으로 한 표준 설정 작업 완료, 2025년부터 이행 지원으로 전환하는 전략적 방향 전환 및 주요 협력 성과 집약.",
+    tags: ["연간 보고", "ICS 채택", "이행 지원"],
+    source: "IAIS",
+    link: "https://www.iais.org/uploads/2026/03/IAIS-Year-in-Review-2025.pdf"
+  },
+  {
+    id: 61,
+    date: "2026-01-15",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, 2026-2027 로드맵 발표 — ICS 이행 평가 본격화",
+    summary: "IAIS 2026-2027 업무 로드맵 발표. 2026년 회원국 ICS 기준 자체평가(Self-Assessment) 실시, 2027년부터 심층 관할권 평가 개시 예정. ComFrame 정성적 요소 포함 이행 평가로 글로벌 기준 일관성 확보 목표.",
+    tags: ["로드맵", "자체평가", "관할권 평가"],
+    source: "IAIS",
+    link: "https://www.iais.org/2026/01/iais-publishes-its-roadmap-2026-2027/"
+  },
+  {
+    id: 60,
+    date: "2025-12-04",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, 2025 글로벌보험시장보고서(GIMAR) 연간판 발간",
+    summary: "IAIS GIMAR 2025 연간 보고서 발간. 글로벌 보험부문의 견고한 지급여력·유동성·수익성 확인. 민간신용(Private Credit) 투자 급증, 지정학적 분열, AI 도입을 3대 핵심 감독 우선순위로 지목. 기후 관련 익스포저 및 사이버 리스크 강화 감시 필요 강조.",
+    tags: ["GIMAR", "민간신용", "AI 감독"],
+    source: "IAIS",
+    link: "https://www.iais.org/2025/12/iais-global-insurance-market-report-2025-highlights-growth-of-investments-in-private-credit-geoeconomic-fragmentation-and-ai-adoption-as-key-supervisory-priorities/"
+  },
+  {
+    id: 59,
+    date: "2025-11-21",
+    regime: "ics",
+    type: "consultation",
+    title: "IAIS, ICS 연계 ComFrame 기준 공개 협의 개시 (감독보고·공시·평가방법론)",
+    summary: "IAIS가 ICS 관련 ComFrame 기준 3종(CF 9.4 감독보고, CF 20.10 공시, 평가방법론 47단락) 공개 협의 개시. 2026년 2월 5일까지 의견 수렴. 미국 집계방식(AM)의 특수성을 평가 방법론에 반영하는 방안 포함.",
+    tags: ["ComFrame", "감독보고", "공시 요건"],
+    source: "IAIS",
+    link: "https://www.iais.org/2025/11/public-consultation-on-ics-related-comframe-standards/"
+  },
+  {
+    id: 58,
+    date: "2025-11-01",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, GIMAR 2025 특별판 — 자연재해 보험 보호 격차와 금융안정성 발간",
+    summary: "GIMAR 2025 특별 주제판: 자연재해(NatCat) 보험 보호 격차가 금융안정성에 미치는 잠재적 영향 분석. 격차 발생 메커니즘 이론적 설명, 금융안정 관련성, 전달 경로 정량 분석 포함. 기후 리스크와 보험 가용성 문제를 연계한 첫 IAIS 시스템 리스크 분석.",
+    tags: ["GIMAR", "자연재해", "보험 격차"],
+    source: "IAIS",
+    link: "https://www.iais.org/uploads/2025/11/GIMAR-2025-special-topic-edition-on-NatCat-insurance-protection-gaps.pdf"
+  },
+  {
+    id: 57,
+    date: "2025-07-02",
+    regime: "ics",
+    type: "regulation",
+    title: "IAIS, ICS 이행 평가 방법론 고위원칙(HLP) 발표",
+    summary: "IAIS 집행위원회가 ICS 이행 평가 방법론 개발을 위한 고위원칙(HLP) 승인. 2026년 회원국 자체평가 설문지 개발과 2027년 관할권 평가 일정을 안내하는 핵심 문서. 이행 평가의 범위·방법·판단 기준 전반의 기본 틀 제시.",
+    tags: ["이행 평가", "고위원칙", "2026 자체평가"],
+    source: "IAIS",
+    link: "https://www.iais.org/2025/07/high-level-principles-for-the-development-of-the-ics-implementation-assessment-published/"
+  },
+  {
+    id: 56,
+    date: "2025-06-27",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, ICS 이해·이행 지원 기술 노트(Technical Note) 발간",
+    summary: "IAIS가 2024년 채택된 ICS의 이해와 이행을 돕기 위한 기술 노트 발간. ICS 산출 방법론에 대한 예시 및 설명 텍스트 포함. IAIG(국제적으로 활동하는 보험그룹) 및 감독당국의 ICS 적용 지원 목적.",
+    tags: ["기술 노트", "ICS 이행", "IAIG"],
+    source: "IAIS",
+    link: "https://www.iais.org/uploads/2025/06/Technical-Note-on-ICS.pdf"
+  },
+  {
+    id: 55,
+    date: "2025-06-05",
+    regime: "ics",
+    type: "report",
+    title: "IAIS, 2025 GIMAR 중간 업데이트 발간 — 글로벌 보험업 건전성 양호",
+    summary: "IAIS 2025년 글로벌보험시장보고서(GIMAR) 중간 업데이트 발간. 글로벌 보험부문의 안정적인 지급여력·유동성·수익성 유지 확인. 지정학적 긴장 고조, 민간신용 투자 확대, AI 도입 가속화가 새로운 감독 우선순위로 부각. 경제 둔화·시장 변동성에 따른 자산·부채 관리 리스크 경고.",
+    tags: ["GIMAR", "중간 업데이트", "글로벌 건전성"],
+    source: "IAIS",
+    link: "https://www.iais.org/2025/06/iais-mid-year-global-insurance-market-report-2025-reflects-insurance-sector-resilience/"
+  },
+  {
     id: 54,
     date: "2026-04-16",
     regime: "kics",
