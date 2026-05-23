@@ -7,7 +7,7 @@ const REGIMES = [
     authority: "EIOPA / EC",
     status: "active",
     color: "#003399",
-    summary: "EU 보험사 건전성 감독 체계. 2016년 시행, 2025년 개정(Omnibus II) 진행 중.",
+    summary: "EU 보험사 건전성 감독 체계. 2016년 시행. Omnibus II 개정안 유럽의회 심의 중(2025년 하반기 3자협의 예정). LTG·지속가능성 리스크 반영 강화 핵심.",
     link: "https://www.eiopa.europa.eu"
   },
   {
@@ -27,9 +27,9 @@ const REGIMES = [
     region: "국제",
     flag: "🌍",
     authority: "IAIS",
-    status: "monitoring",
+    status: "transition",
     color: "#1a6b3a",
-    summary: "국제보험감독자협의회(IAIS)의 국제보험자본기준. 2025년 모니터링 기간 종료, 2026년부터 시행 예정.",
+    summary: "국제보험감독자협의회(IAIS)의 국제보험자본기준. 2024년 모니터링 기간 종료, 2026년 공식 시행 예정. IAIS, 최종 감독지침 확정 단계.",
     link: "https://www.iaisweb.org"
   },
   {
@@ -51,7 +51,7 @@ const REGIMES = [
     authority: "FSA",
     status: "transition",
     color: "#BC002D",
-    summary: "경제가치기반 지급여력비율(EV-based) 도입 추진. 2025년 필드테스트 진행, 2025년 시행.",
+    summary: "경제가치기반 지급여력비율(EV-based) 2025년 4월 정식 시행. 첫 공시 결과 주요 생명보험사 비율 200% 상회. 전환기 경과조치 병행 적용 중.",
     link: "https://www.fsa.go.jp"
   },
   {
@@ -95,7 +95,7 @@ const REGIMES = [
     authority: "금융위원회 / 금융감독원",
     status: "active",
     color: "#003478",
-    summary: "경제가치기반 지급여력제도(K-ICS, 킥스). 2023년 1월 시행. 부채를 시장금리로 평가하는 Solvency II 유사 방식 채택.",
+    summary: "경제가치기반 지급여력제도(K-ICS, 킥스). 2023년 1월 시행. 2025년 경과조치 개정 및 신뢰조정(VA) 개선 논의 중. 금리 하락 시 비율 변동성 완화가 주요 과제.",
     link: "https://www.fss.or.kr"
   },
   {
@@ -112,6 +112,61 @@ const REGIMES = [
 ];
 
 const UPDATES = [
+  {
+    id: 20,
+    date: "2025-08-07",
+    regime: "ics",
+    type: "regulation",
+    title: "IAIS, ICS 최종 감독지침(Supervisory Material) 초안 공개",
+    summary: "IAIS가 2026년 ICS 공식 시행에 앞서 ComFrame 감독지침 최종 초안 공개. 그룹감독자 역할, 자본배분 방법론, 보고체계 세부 규정 포함. 9월까지 의견수렴.",
+    tags: ["ICS 2.0", "ComFrame", "감독지침"],
+    source: "IAIS",
+    link: "https://www.iaisweb.org"
+  },
+  {
+    id: 19,
+    date: "2025-07-24",
+    regime: "kics",
+    type: "report",
+    title: "금융감독원, 2025년 1분기 K-ICS 비율 현황 발표",
+    summary: "생명보험사 평균 K-ICS 비율 189.4%(경과조치 적용 전 148.2%), 손해보험사 평균 207.1%(적용 전 178.6%). 금리 하락 영향으로 생명보험사 비율 전분기 대비 소폭 하락.",
+    tags: ["K-ICS", "1분기", "금리 민감도"],
+    source: "금융감독원 (FSS)",
+    link: "https://www.fss.or.kr"
+  },
+  {
+    id: 18,
+    date: "2025-07-10",
+    regime: "japan_ev",
+    type: "report",
+    title: "일본 FSA, 경제가치기반 지급여력 시행 후 첫 분기 공시 결과",
+    summary: "2025년 4월 시행 이후 첫 번째 경제가치기반 비율 공시. 주요 생명보험 그룹 평균 비율 220%대. 금리 상승 효과로 부채 평가액 감소, 전반적 양호한 출발.",
+    tags: ["일본 FSA", "경제가치기반", "첫 공시"],
+    source: "金融庁 (FSA Japan)",
+    link: "https://www.fsa.go.jp"
+  },
+  {
+    id: 17,
+    date: "2025-06-18",
+    regime: "solvency2",
+    type: "regulation",
+    title: "유럽의회 ECON, Omnibus II 수정안 심의 완료",
+    summary: "유럽의회 경제통화위원회(ECON)가 Omnibus II 수정안 의결. 변동성조정(VA) 산출 방식 개선, 비례성 원칙 확대, 기후 시나리오 분석 의무화 포함. 3자협의(Trilogue) 개시 예정.",
+    tags: ["Omnibus II", "ECON", "Trilogue"],
+    source: "European Parliament",
+    link: "https://www.eiopa.europa.eu"
+  },
+  {
+    id: 16,
+    date: "2025-06-03",
+    regime: "solvency_uk",
+    type: "report",
+    title: "PRA, Solvency UK 시행 성과 점검 및 추가 개혁 방향 공표",
+    summary: "PRA가 Solvency UK 주요 성과 발표. 매칭조정 포트폴리오 자산 25% 확대, 인프라 투자 증가. 2026년 추가 보고 간소화 패키지 예고.",
+    tags: ["Solvency UK", "PRA", "인프라 투자"],
+    source: "PRA / Bank of England",
+    link: "https://www.bankofengland.co.uk/prudential-regulation"
+  },
   {
     id: 13,
     date: "2025-05-08",
