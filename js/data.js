@@ -883,17 +883,6 @@ const UPDATES = [
     link: "https://www.fss.or.kr"
   },
   {
-    id: 18,
-    date: "2025-07-10",
-    regime: "japan_ev",
-    type: "report",
-    title: "일본 FSA, 경제가치기반 지급여력 시행 후 첫 분기 공시 결과",
-    summary: "2025년 4월 시행 이후 첫 번째 경제가치기반 비율 공시. 주요 생명보험 그룹 평균 비율 220%대. 금리 상승 효과로 부채 평가액 감소, 전반적 양호한 출발.",
-    tags: ["일본 FSA", "경제가치기반", "첫 공시"],
-    source: "金融庁 (FSA Japan)",
-    link: "https://www.fsa.go.jp"
-  },
-  {
     id: 17,
     date: "2025-06-18",
     regime: "solvency2",
