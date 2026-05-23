@@ -34,7 +34,7 @@ const REGIMES = [
   },
   {
     id: "ics",
-    name: "ICS 2.0",
+    name: "ICS",
     region: "국제",
     flag: "🌍",
     authority: "IAIS",
@@ -592,7 +592,7 @@ const UPDATES = [
     type: "regulation",
     title: "IAIS, ICS 최종 감독지침(Supervisory Material) 초안 공개",
     summary: "IAIS가 2026년 ICS 공식 시행에 앞서 ComFrame 감독지침 최종 초안 공개. 그룹감독자 역할, 자본배분 방법론, 보고체계 세부 규정 포함. 9월까지 의견수렴.",
-    tags: ["ICS 2.0", "ComFrame", "감독지침"],
+    tags: ["ICS", "ComFrame", "감독지침"],
     source: "IAIS",
     link: "https://www.iaisweb.org"
   },
@@ -691,7 +691,7 @@ const UPDATES = [
     type: "report",
     title: "IAIS, ICS 2025 필드테스트 결과 보고서 발표",
     summary: "IAIS가 ICS 모니터링 기간(2020~2024) 누적 필드테스트 결과 분석 보고서 공개. 17개국 55개 보험그룹 참여. 자본비율 분포 및 감도분석 포함.",
-    tags: ["ICS 2.0", "필드테스트", "ComFrame"],
+    tags: ["ICS", "필드테스트", "ComFrame"],
     source: "IAIS",
     link: "https://www.iaisweb.org"
   },
