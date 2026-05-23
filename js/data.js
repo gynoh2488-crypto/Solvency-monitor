@@ -1112,7 +1112,7 @@ const RESOURCES = [
   {
     category: "일본",
     items: [
-      { name: "일본 FSA 보험국", url: "https://www.fsa.go.jp/policy/hoken/index.html", desc: "경제가치기반 지급여력 관련 자료" },
+      { name: "일본 FSA 경제가치기반 지급여력", url: "https://www.fsa.go.jp/policy/economic_value-based_solvency/index.html", desc: "ESR 법령·지침·필드테스트 결과 등 관련 자료 일체" },
     ]
   },
   {
