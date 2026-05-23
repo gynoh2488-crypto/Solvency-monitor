@@ -473,6 +473,52 @@ a:hover { text-decoration: underline; }
 }
 .update-source-link:hover { text-decoration: underline; }
 
+/* ── Market Indicators ───────────────────────────────── */
+.indicator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.indicator-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.indicator-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.indicator-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.indicator-value.loading { color: var(--border); }
+.indicator-change {
+  font-size: 0.76rem;
+  font-weight: 500;
+  min-height: 1em;
+}
+.indicator-change.up   { color: #27ae60; }
+.indicator-change.down { color: var(--red); }
+.indicator-change.neutral { color: var(--text-muted); }
+.indicator-basis {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+@media (max-width: 800px) {
+  .indicator-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── Regime Detail ───────────────────────────────────── */
 .regime-detail-header {
   background: var(--surface);

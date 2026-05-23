@@ -59,6 +59,7 @@ function showPage(page, regimeId) {
 function renderDashboard() {
   renderRegimeGrid();
   renderRecentUpdates(4);
+  renderIndicators();
 }
 
 function renderRegimeGrid() {
@@ -221,6 +222,95 @@ function renderResources() {
       `).join('')}
     </div>
   `).join('');
+}
+
+// ── Market Indicators ────────────────────────────────
+async function renderIndicators() {
+  const el = document.getElementById('indicator-grid');
+  if (!el) return;
+
+  el.innerHTML = `
+    <div class="indicator-card">
+      <div class="indicator-label">K-ICS 비율</div>
+      <div class="indicator-value">212.3%</div>
+      <div class="indicator-change up">↑ +1.5%p 전분기 대비</div>
+      <div class="indicator-basis">2025년 12월말 · 금융감독원 공시</div>
+    </div>
+    <div class="indicator-card" id="icard-fx">
+      <div class="indicator-label">원/달러 환율</div>
+      <div class="indicator-value loading">조회 중</div>
+      <div class="indicator-change neutral"></div>
+      <div class="indicator-basis"></div>
+    </div>
+    <div class="indicator-card" id="icard-kospi">
+      <div class="indicator-label">KOSPI</div>
+      <div class="indicator-value loading">조회 중</div>
+      <div class="indicator-change neutral"></div>
+      <div class="indicator-basis"></div>
+    </div>
+    <div class="indicator-card" id="icard-bond">
+      <div class="indicator-label">국고채 10년</div>
+      <div class="indicator-value loading">조회 중</div>
+      <div class="indicator-change neutral"></div>
+      <div class="indicator-basis"></div>
+    </div>
+  `;
+
+  fetch('https://open.er-api.com/v6/latest/USD')
+    .then(r => r.json())
+    .then(d => setIndicator('icard-fx',
+      Math.round(d.rates.KRW).toLocaleString('ko-KR') + '원',
+      '실시간', 'neutral', 'ExchangeRate-API'))
+    .catch(() => setIndicator('icard-fx', '조회 불가', '', 'neutral', ''));
+
+  fetchYahooChart('^KS11').then(r => {
+    if (!r) { setIndicator('icard-kospi', '조회 불가', '', 'neutral', ''); return; }
+    const dir = r.change >= 0 ? 'up' : 'down';
+    const sign = r.change >= 0 ? '↑' : '↓';
+    setIndicator('icard-kospi',
+      r.price.toLocaleString('ko-KR', { maximumFractionDigits: 0 }),
+      sign + ' ' + Math.abs(r.change).toFixed(2) + '% 전일비',
+      dir, 'Yahoo Finance');
+  });
+
+  fetchYahooChart('^KR10YT=RR').then(r => {
+    if (!r) { setIndicator('icard-bond', '조회 불가', '', 'neutral', ''); return; }
+    const dir = r.change >= 0 ? 'up' : 'down';
+    const sign = r.change >= 0 ? '↑' : '↓';
+    setIndicator('icard-bond',
+      r.price.toFixed(2) + '%',
+      sign + ' ' + Math.abs(r.rawChange).toFixed(3) + '%p 전일비',
+      dir, 'Yahoo Finance');
+  });
+}
+
+async function fetchYahooChart(symbol) {
+  try {
+    const r = await fetch(
+      'https://query1.finance.yahoo.com/v8/finance/chart/' +
+      encodeURIComponent(symbol) + '?interval=1d&range=1d'
+    );
+    if (!r.ok) return null;
+    const d = await r.json();
+    const meta = d.chart.result[0].meta;
+    const price = meta.regularMarketPrice;
+    const prev = meta.chartPreviousClose;
+    const rawChange = prev ? price - prev : 0;
+    const change = prev ? (rawChange / prev * 100) : 0;
+    return { price, change, rawChange };
+  } catch { return null; }
+}
+
+function setIndicator(id, value, change, dir, basis) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const v = c.querySelector('.indicator-value');
+  v.textContent = value;
+  v.classList.remove('loading');
+  const ch = c.querySelector('.indicator-change');
+  ch.textContent = change;
+  ch.className = 'indicator-change ' + dir;
+  c.querySelector('.indicator-basis').textContent = basis;
 }
 
 // ── Sidebar ──────────────────────────────────────────
