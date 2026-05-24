@@ -263,41 +263,53 @@ async function renderIndicators() {
       '실시간', 'neutral', 'ExchangeRate-API'))
     .catch(() => setIndicator('icard-fx', '조회 불가', '', 'neutral', ''));
 
-  fetchYahooChart('^KS11').then(r => {
+  fetchNaverIndex('KOSPI').then(r => {
     if (!r) { setIndicator('icard-kospi', '조회 불가', '', 'neutral', ''); return; }
-    const dir = r.change >= 0 ? 'up' : 'down';
-    const sign = r.change >= 0 ? '↑' : '↓';
+    const sign = r.dir === 'up' ? '↑' : '↓';
     setIndicator('icard-kospi',
-      r.price.toLocaleString('ko-KR', { maximumFractionDigits: 0 }),
+      r.price.toLocaleString('ko-KR', { maximumFractionDigits: 2 }),
       sign + ' ' + Math.abs(r.change).toFixed(2) + '% 전일비',
-      dir, 'Yahoo Finance');
+      r.dir, 'Naver Finance');
   });
 
-  fetchYahooChart('^KR10YT=RR').then(r => {
+  fetchInvestingBond(29292).then(r => {
     if (!r) { setIndicator('icard-bond', '조회 불가', '', 'neutral', ''); return; }
-    const dir = r.change >= 0 ? 'up' : 'down';
-    const sign = r.change >= 0 ? '↑' : '↓';
+    const dir = r.rawChange >= 0 ? 'up' : 'down';
+    const sign = r.rawChange >= 0 ? '↑' : '↓';
     setIndicator('icard-bond',
       r.price.toFixed(2) + '%',
       sign + ' ' + Math.abs(r.rawChange).toFixed(3) + '%p 전일비',
-      dir, 'Yahoo Finance');
+      dir, 'Investing.com');
   });
 }
 
-async function fetchYahooChart(symbol) {
+async function fetchNaverIndex(code) {
+  try {
+    const proxy = 'https://api.allorigins.win/get?url=';
+    const url = 'https://m.stock.naver.com/api/index/' + code + '/basic';
+    const r = await fetch(proxy + encodeURIComponent(url));
+    const j = await r.json();
+    const d = JSON.parse(j.contents);
+    const price = parseFloat(d.closePrice.replace(/,/g, ''));
+    const change = parseFloat(d.fluctuationsRatio);
+    const dir = d.compareToPreviousPrice?.name === 'RISING' ? 'up' : 'down';
+    return { price, change, dir };
+  } catch { return null; }
+}
+
+async function fetchInvestingBond(pairId) {
   try {
     const r = await fetch(
-      'https://query1.finance.yahoo.com/v8/finance/chart/' +
-      encodeURIComponent(symbol) + '?interval=1d&range=1d'
+      'https://api.investing.com/api/financialdata/' + pairId +
+      '/historical/chart/?period=P1D&pointscount=60'
     );
     if (!r.ok) return null;
-    const d = await r.json();
-    const meta = d.chart.result[0].meta;
-    const price = meta.regularMarketPrice;
-    const prev = meta.chartPreviousClose;
-    const rawChange = prev ? price - prev : 0;
-    const change = prev ? (rawChange / prev * 100) : 0;
-    return { price, change, rawChange };
+    const j = await r.json();
+    const chart = j.data;
+    if (!chart || chart.length < 2) return null;
+    const price = chart[chart.length - 1][4];
+    const prev  = chart[chart.length - 2][4];
+    return { price, rawChange: price - prev };
   } catch { return null; }
 }
 
